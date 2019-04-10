@@ -1,0 +1,117 @@
+{% extends 'layouts/homeLayout.html' %}
+{% load static %}
+{% block titulo %}Login{% endblock %}
+
+{% block css %}
+
+	<style>
+		body {
+			background-color: #eee;
+		}
+
+		label {
+			font-weight: 600;
+		}
+	</style>
+
+{% endblock %}
+
+{% block content %}
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 offset-md-4 mt-5 p-3 bg-white" style="border-radius: 8px;">
+				<h3 class="text-center">Login</h3>
+				<hr>
+				<form>
+					<div class="form-group">
+						<label>Usuario</label>
+						<input class="form-control" v-model="forms.login.usuario" type="text" placeholder="Usuario" @change="errors.login.usuario = undefined">
+						<small class="text-danger" v-if="errors.login.usuario">
+							${ errors.login.usuario[0].message }
+						</small>
+					</div>
+					<div class="form-group">
+						<label>Contraseña</label>
+						<input class="form-control" v-model="forms.login.password" type="password" placeholder="Contraseña" @change="errors.login.password = undefined">
+						<small class="text-danger" v-if="errors.login.password">
+							${ errors.login.password[0].message }
+						</small>
+					</div>
+					<br>
+					<input type="submit" class="btn btn-primary" value="Iniciar sesión">
+					<button type="button" class="btn btn-link" @click="abrirModalRegistro">Registrate</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="registroModal" tabindex="-1" role="dialog" aria-labelledby="registroModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="registroModalLabel">REGISTRO</h5>
+				</div>
+				<div class="modal-body p-4">
+					<div class="form-group">
+						<label>Nombres</label>
+						<input v-model="forms.registro.nombres" type="text" class="form-control" placeholder="Nombres" @change="errors.registro.nombres = undefined">
+						<small class="text-danger" v-if="errors.registro.nombres">
+							${ errors.registro.nombres[0].message }
+						</small>
+					</div>
+					<div class="form-group">
+						<label>Apellidos</label>
+						<input v-model="forms.registro.apellidos" type="text" class="form-control" placeholder="Apellidos" @change="errors.registro.apellidos = undefined">
+						<small class="text-danger" v-if="errors.registro.apellidos">
+							${ errors.registro.apellidos[0].message }
+						</small>
+					</div>
+					<div class="form-group">
+						<label>Correo electrónico</label>
+						<input v-model="forms.registro.correo" type="text" class="form-control" placeholder="Correo electrónico" @change="errors.registro.correo = undefined">
+						<small class="text-danger" v-if="errors.registro.correo">
+							${ errors.registro.correo[0].message }
+						</small>
+					</div>
+					<hr>
+					<div class="form-group">
+						<label>Rol</label>
+						<select v-model="forms.registro.rol_id" class="form-control" @change="errors.registro.rol = undefined">
+							<option :value="undefined" hidden selected>Seleccione una opción</option>
+							<option v-for="item in datos.roles" :value="item.id">${ item.nombre }</option>
+						</select>
+						<small class="text-danger" v-if="errors.registro.rol">
+							${ errors.registro.rol[0].message }
+						</small>
+					</div>
+					<div class="form-group">
+						<label>Usuario</label>
+						<input v-model="forms.registro.usuario" type="text" class="form-control" placeholder="Usuario" @change="errors.registro.usuario = undefined">
+						<small class="text-danger" v-if="errors.registro.usuario">
+							${ errors.registro.usuario[0].message }
+						</small>
+					</div>
+					<div class="form-group">
+						<label>Contraseña</label>
+						<input v-model="forms.registro.password" type="password" class="form-control" placeholder="Contraseña" @change="errors.registro.password = undefined">
+						<small class="text-danger" v-if="errors.registro.password">
+							${ errors.registro.password[0].message }
+						</small>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-primary" @click="registro">Registrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<script src="{% static 'js/login.js' %}"></script>
+
+{% endblock %}
