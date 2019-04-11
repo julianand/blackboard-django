@@ -17,7 +17,7 @@ def index (request):
 
 @require_http_methods(['GET'])
 def datosRegistro (request):
-	roles = [{ 'id': rol.id, 'nombre': rol.nombre } for rol in  Rol.objects.all()]
+	roles = [ { 'id': rol.id, 'nombre': rol.nombre } for rol in  Rol.objects.all() ]
 	return HttpResponse(json.dumps({ 'roles': roles }))
 
 @require_http_methods(['POST'])
