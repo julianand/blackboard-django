@@ -34,7 +34,7 @@ def registrar (request):
 
 		Usuario.objects.create_user(datos['usuario'], datos['password'], datos['rol_id'], per.id)
 
-		return HttpResponse(1)
+		return HttpResponse(0)
 
 	return HttpResponse(form.errors.as_json())
 
