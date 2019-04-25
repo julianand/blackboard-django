@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.http import require_http_methods
 
 from app.forms import RegistroCursoForm
+from app.models import Curso
 
 import json
 
@@ -17,7 +18,6 @@ def registrarCurso (request):
 	form = RegistroCursoForm(datos)
 
 	if form.is_valid():
-
 		return HttpResponse(':)')
 
 	response = HttpResponse(form.errors.as_json())
