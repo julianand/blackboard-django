@@ -15,6 +15,7 @@ class Persona(models.Model):
     nombres = models.CharField(max_length=100)
     apellidos = models.CharField(max_length=100)
     correo = models.CharField(max_length=100)
+    cursos = models.ManyToManyField('Curso', through='CursoEstudiante')
 
     class Meta:
         managed = False
@@ -83,3 +84,23 @@ class Usuario (AbstractBaseUser):
 
     class Meta:
         db_table = 'usuario'
+
+class Curso(models.Model):
+    nombre = models.CharField(max_length=200)
+    fecha_inicio = models.DateField()
+    fecha_final = models.DateField()
+    profesor = models.ForeignKey('Persona', models.CASCADE)
+
+    class Meta:
+        managed = False
+        db_table = 'curso'
+
+class CursoEstudiante(models.Model):
+    curso = models.ForeignKey(Curso, models.DO_NOTHING, primary_key=True)
+    estudiante = models.ForeignKey('Persona', models.DO_NOTHING)
+    nota = models.CharField(max_length=10, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'curso_estudiante'
+        unique_together = (('curso', 'estudiante'),)

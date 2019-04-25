@@ -13,3 +13,7 @@ class RegistroForm (forms.Form):
 class LoginForm (forms.Form):
 	usuario = forms.CharField()
 	password = forms.CharField()
+
+class RegistroCursoForm (forms.Form):
+	nombre = forms.CharField()
+	fecha_final = forms.DateField()

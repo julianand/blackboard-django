@@ -52,7 +52,7 @@ def login_view (request):
 	datos = json.loads(request.body)
 	form = LoginForm(datos)
 
-	if (form.is_valid()):
+	if form.is_valid():
 		user = authenticate(request, username=datos['usuario'], password=datos['password'])
 		if (user is not None):
 			login(request, user)

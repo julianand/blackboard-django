@@ -1,4 +1,4 @@
-var app = new Vue({
+new Vue({
 	el: '#app',
 	delimiters: ['${', '}'],
 	data: {
@@ -52,8 +52,8 @@ var app = new Vue({
 				cerrarCargando();
 
 				if (error.response.status == 422) vue.errors.login = error.response.data;
-				else if (error.response.status == 500) mostrarError(error.response.data)
-				else swal('Error', error.response.data, 'error');
+				else if (error.response.status == 400) swal('Error', error.response.data, 'error');
+				else mostrarError(error.response.data);
 			});
 		}
 	},
