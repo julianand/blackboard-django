@@ -23,7 +23,7 @@
 			<div class="col-md-4 offset-md-4 mt-5 p-3 bg-white" style="border-radius: 8px;">
 				<h3 class="text-center">Login</h3>
 				<hr>
-				<form>
+				<form @submit.prevent="login">
 					<div class="form-group">
 						<label>Usuario</label>
 						<input class="form-control" v-model="forms.login.usuario" type="text" placeholder="Usuario" @change="errors.login.usuario = undefined">

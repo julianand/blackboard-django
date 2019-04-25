@@ -1,0 +1,38 @@
+{% extends 'layouts/principalLayout.html' %}
+{% load static %}
+{% block titulo %}Tablero de profesor{% endblock %}
+
+{% block content %}
+
+	<ul class="nav bg-primary">
+		<li class="nav-item py-2">
+			<a class="nav-link text-white" href="#">Mis cursos</a>
+		</li>
+		<!-- --------------------------------------------------------------- -->
+		<li class="nav-item py-2 ml-auto bg-danger">
+			<a class="nav-link text-white" href="/logout" data-toggle="modal" data-target="#sesionModal">Cerrar sesion</a>
+		</li>
+	</ul>
+	<br>
+	<section class="container bg-white py-3 px-4 rounded">
+		<div>
+			<button class="btn btn-success">Añadir curso</button>
+		</div>
+	    <br>
+	    <div class="row">
+	    	<div class="col-sm-4">
+	    		<div class="card">
+		            <div class="card-body">
+		                <h5 class="card-title mb-0">Curso 1</h5>
+		                <small class="card-subtitle text-muted"># estudiantes registrados</small>
+		                <br><br>
+		                <p class="card-text">Descripción del curso</p>
+		                <a href="#" class="card-link"><small>Ver detalles</small></a>
+		            </div>
+		        </div>
+	    	</div>
+	    </div>
+	    <p class="font-italic text-muted">No posee cursos en el momento, clic en el botón para añadir uno.</p>
+	</section>
+
+{% endblock %}

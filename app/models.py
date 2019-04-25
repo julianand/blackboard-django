@@ -4,10 +4,8 @@ from django.contrib.auth.models import (
 )
 
 class Rol(models.Model):
-    nombre = models.CharField(max_length=200)
-
-    def __str__(self):
-    	return self.nombre
+    nombre = models.CharField(max_length=100)
+    root = models.CharField(max_length=20)
 
     class Meta:
         managed = False

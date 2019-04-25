@@ -29,3 +29,7 @@ function mostrarError (data) {
 	
 	swal(titulo, texto, 'error');
 }
+
+function actualizar () {
+	window.location.href = window.location.href;
+}

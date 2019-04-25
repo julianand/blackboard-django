@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.http import require_http_methods
-from django.contrib.auth import authenticate
-
+from django.contrib.auth import authenticate, login, logout
 from .models import Rol, Persona, Usuario
 from .forms import RegistroForm, LoginForm
 
@@ -13,7 +12,15 @@ import json
 # Create your views here.
 @require_http_methods(['GET'])
 def index (request):
+	if request.user.is_authenticated:
+		return HttpResponseRedirect(request.user.rol.root)
+
 	return render(request, 'home/index.html', {})
+
+@require_http_methods(['GET'])
+def logout_view (request):
+	logout(request)
+	return HttpResponseRedirect('/')
 
 @require_http_methods(['GET'])
 def datosRegistro (request):
@@ -36,18 +43,25 @@ def registrar (request):
 
 		return HttpResponse(0)
 
-	return HttpResponse(form.errors.as_json())
+	response = HttpResponse(form.errors.as_json())
+	response.status_code = 422
+	return response
 
 @require_http_methods(['POST'])
-def login (request):
+def login_view (request):
 	datos = json.loads(request.body)
 	form = LoginForm(datos)
 
 	if (form.is_valid()):
-		user = authenticate(username=datos['usuario'], password=datos['password'])
+		user = authenticate(request, username=datos['usuario'], password=datos['password'])
 		if (user is not None):
-			return HttpResponse('logueado')
+			login(request, user)
+			return HttpResponse('')
 		else:
-			return HttpResponse('hola')
+			response = HttpResponse('No se reconoce usuario o contraseña')
+			response.status_code = 400
+			return response
 
-	return HttpResponse(forms.errors.as_json())
+	response = HttpResponse(form.errors.as_json())
+	response.status_code = 422
+	return response
