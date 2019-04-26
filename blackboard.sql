@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-04-2019 a las 00:02:32
+-- Tiempo de generación: 26-04-2019 a las 18:18:27
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -103,10 +103,19 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 CREATE TABLE `curso` (
   `id` int(11) NOT NULL,
   `nombre` varchar(200) NOT NULL,
+  `descripcion` varchar(200) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_final` date NOT NULL,
   `profesor_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `curso`
+--
+
+INSERT INTO `curso` (`id`, `nombre`, `descripcion`, `fecha_inicio`, `fecha_final`, `profesor_id`) VALUES
+(4, 'curso de como dormir', 'sueño para dummys', '2019-04-26', '2019-04-27', 1),
+(5, 'curso de como despertar', 'wake up in da morning', '2019-04-26', '2019-04-27', 1);
 
 -- --------------------------------------------------------
 
@@ -215,7 +224,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('17xnhccmo7diuoyoo8n7sqy2q1iga5ss', 'ODFjYTU3OTNiNmFhYzY1MjhiYWUxMWE2Nzc5MTNhMjAxZTM2ZmY5Yzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2NzlkMDVmMmJjMTE0NzdiMDdiZTU5ODgzNzEwYjQ4NGY3ZWRlNGUxIn0=', '2019-05-09 15:53:43.011979');
+('yl5c5dt8708pazpioyqo4xkzin0vp1fd', 'ODFjYTU3OTNiNmFhYzY1MjhiYWUxMWE2Nzc5MTNhMjAxZTM2ZmY5Yzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2NzlkMDVmMmJjMTE0NzdiMDdiZTU5ODgzNzEwYjQ4NGY3ZWRlNGUxIn0=', '2019-05-10 10:57:26.049992');
 
 -- --------------------------------------------------------
 
@@ -279,7 +288,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `password`, `last_login`, `nombre`, `updated`, `created`, `persona_id`, `rol_id`) VALUES
-(1, 'pbkdf2_sha256$120000$EUPbEA5k4V8p$iybGwawPIylckEbGlqIoUfmWOql8j2J2vnUvntGryXo=', '2019-04-25 15:53:42.918974', 'jpitre', '2019-04-24 15:26:14.808910', '2019-04-24 15:26:14.808910', 1, 1);
+(1, 'pbkdf2_sha256$120000$EUPbEA5k4V8p$iybGwawPIylckEbGlqIoUfmWOql8j2J2vnUvntGryXo=', '2019-04-26 10:57:26.019991', 'jpitre', '2019-04-24 15:26:14.808910', '2019-04-24 15:26:14.808910', 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -393,7 +402,7 @@ ALTER TABLE `auth_permission`
 -- AUTO_INCREMENT de la tabla `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `django_admin_log`
 --

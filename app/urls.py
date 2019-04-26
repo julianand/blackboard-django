@@ -11,5 +11,8 @@ urlpatterns = [
     path('logout/', views.logout_view),
 
     path('profesor/', profesor_views.index),
-    path('profesor/registrar-curso', profesor_views.registrarCurso)
+    path('profesor/cursos', profesor_views.cursos),
+    path('profesor/registrar-curso', profesor_views.registrarCurso),
+
+    path('profesor/curso/<int:num>', profesor_views.curso_view),
 ]

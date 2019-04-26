@@ -6,7 +6,7 @@
 
 	<ul class="nav bg-primary">
 		<li class="nav-item py-2">
-			<a class="nav-link text-white" href="#">Mis cursos</a>
+			<a class="nav-link text-white" href="/profesor">Mis cursos</a>
 		</li>
 		<!-- --------------------------------------------------------------- -->
 		<li class="nav-item py-2 ml-auto bg-danger">
@@ -19,20 +19,20 @@
 			<button class="btn btn-success" @click="abrirModalCurso">Añadir curso</button>
 		</div>
 	    <br>
-	    <div class="row">
-	    	<div class="col-sm-4">
+	    <div class="row" v-if="cursos.length > 0">
+	    	<div class="col-sm-4" v-for="curso in cursos">
 	    		<div class="card">
 		            <div class="card-body">
-		                <h5 class="card-title mb-0">Curso 1</h5>
+		                <h5 class="card-title mb-0">${ curso.nombre }</h5>
 		                <small class="card-subtitle text-muted"># estudiantes registrados</small>
 		                <br><br>
-		                <p class="card-text">Descripción del curso</p>
-		                <a href="#" class="card-link"><small>Ver detalles</small></a>
+		                <p class="card-text">${ curso.descripcion }</p>
+		                <a :href="'curso/'+curso.id" class="card-link"><small>Ver detalles</small></a>
 		            </div>
 		        </div>
 	    	</div>
 	    </div>
-	    <p class="font-italic text-muted">No posee cursos en el momento, clic en el botón para añadir uno.</p>
+	    <p class="font-italic text-muted" v-else>No posee cursos en el momento, clic en el botón para añadir uno.</p>
 	</section>
 
 	<!-- MODAL CURSO -->
@@ -56,6 +56,11 @@
 		                	<label>Fecha de finalización del curso</label>
 		                	<input type="date" class="form-control" v-model="curso.fecha_final" @change="errors.curso.fecha_final = undefined">
 		                	<small class="text-danger" v-if="errors.curso.fecha_final">${ errors.curso.fecha_final[0].message }</small>
+		                </div>
+		                <div class="form-group">
+		                	<label>Descripcion del curso</label>
+		                	<textarea class="form-control" placeholder="Descripcion" v-model="curso.descripcion" @change="errors.curso.descripcion = undefined"></textarea>
+		                	<small class="text-danger" v-if="errors.curso.descripcion">${ errors.curso.descripcion[0].message }</small>
 		                </div> 
 		            </div>
 		            <div class="modal-footer">

@@ -87,6 +87,7 @@ class Usuario (AbstractBaseUser):
 
 class Curso(models.Model):
     nombre = models.CharField(max_length=200)
+    descripcion = models.CharField(max_length=200)
     fecha_inicio = models.DateField()
     fecha_final = models.DateField()
     profesor = models.ForeignKey('Persona', models.CASCADE)

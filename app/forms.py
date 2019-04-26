@@ -16,4 +16,5 @@ class LoginForm (forms.Form):
 
 class RegistroCursoForm (forms.Form):
 	nombre = forms.CharField()
+	descripcion = forms.CharField()
 	fecha_final = forms.DateField()

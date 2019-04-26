@@ -5,11 +5,18 @@ var app = new Vue({
 	delimiters: [ '${', '}' ],
 	data: {
 		curso: {},
+		cursos: [],
 		errors: {
 			curso: {}
 		}
 	},
 	methods: {
+		getCursos: function () {
+			var vue = this;
+			axios.get('cursos').then(function (response) {
+				vue.cursos = response.data;
+			});
+		},
 		abrirModalCurso: function () {
 			this.curso = {};
 			$('#cursoModal').modal('show');
@@ -20,6 +27,8 @@ var app = new Vue({
 			axios.post('registrar-curso', vue.curso).then(function (response) {
 				cerrarCargando();
 
+				vue.getCursos();
+				$('#cursoModal').modal('hide');
 				swal('Exito', 'Curso añadido con exito', 'success');
 			}).catch(function (error) {
 				cerrarCargando();
@@ -28,5 +37,8 @@ var app = new Vue({
 				else mostrarError(error.response.data);
 			});
 		}
+	},
+	created: function () {
+		this.getCursos();
 	}
 });

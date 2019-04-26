@@ -1,0 +1,27 @@
+{% extends 'layouts/principalLayout.html' %}
+{% load static %}
+{% block titulo %}Curso{% endblock %}
+
+{% block content %}
+
+	<ul class="nav bg-primary">
+		<li class="nav-item py-2">
+			<a class="nav-link text-white" href="/profesor">Mis cursos</a>
+		</li>
+		<!-- --------------------------------------------------------------- -->
+		<li class="nav-item py-2 ml-auto bg-danger">
+			<a class="nav-link text-white" href="/logout" data-toggle="modal" data-target="#sesionModal">Cerrar sesion</a>
+		</li>
+	</ul>
+	<br>
+	<section class="container bg-white py-3 px-4 rounded">
+		hola
+	</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<script src="{% static 'js/profesor.js' %}"></script>
+
+{% endblock %}
