@@ -15,7 +15,7 @@ class Persona(models.Model):
     nombres = models.CharField(max_length=100)
     apellidos = models.CharField(max_length=100)
     correo = models.CharField(max_length=100)
-    cursos = models.ManyToManyField('Curso', through='CursoEstudiante')
+    cursos = models.ManyToManyField('Curso', through='CursoEstudiante', related_name="estudiantes")
 
     class Meta:
         managed = False

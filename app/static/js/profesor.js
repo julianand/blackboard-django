@@ -1,6 +1,6 @@
 axios.defaults.baseURL = 'http://127.0.0.1:8000/profesor';
 
-var app = new Vue({
+new Vue({
 	el: '#app',
 	delimiters: [ '${', '}' ],
 	data: {

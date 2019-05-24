@@ -2,6 +2,12 @@
 {% load static %}
 {% block titulo %}Curso{% endblock %}
 
+{% block css %}
+	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+{% endblock %}
+
 {% block content %}
 
 	<ul class="nav bg-primary">
@@ -15,13 +21,153 @@
 	</ul>
 	<br>
 	<section class="container bg-white py-3 px-4 rounded">
-		hola
+		<fieldset>
+			<small class="text-muted">Detalles de:</small>
+			<div class="d-flex" @mouseover="mostrarEditar.nombre = true" @mouseleave="mostrarEditar.nombre = false">
+				<h1>${ curso.nombre }</h1>
+				<button class="btn btn-link text-info" style="text-decoration: none;" @click="abrirModalNombre">
+					<i class="fas fa-pen" data-toggle="tooltip" title="Editar nombre" v-if="mostrarEditar.nombre"></i>
+				</button>
+			</div>
+			<small @mouseover="mostrarEditar.fecha_inicio = true" @mouseleave="mostrarEditar.fecha_inicio = false">
+				Fecha de inicio:
+				<span class="text-secondary">${ curso.fecha_inicio }</span>
+				<i class="fas fa-pen text-info" style="cursor: pointer;" data-toggle="tooltip" title="Editar fecha de inicio" @click="abrirModalFecha('inicio',curso.fecha_inicio)" v-if="mostrarEditar.fecha_inicio"></i>
+			</small>
+			<br>
+			<small @mouseover="mostrarEditar.fecha_final = true" @mouseleave="mostrarEditar.fecha_final = false">
+				Fecha de finalizacion:
+				<span class="text-secondary">${ curso.fecha_final }</span>
+				<i class="fas fa-pen text-info" style="cursor: pointer;" data-toggle="tooltip" title="Editar fecha de finalizacion" @click="abrirModalFecha('final',curso.fecha_final)" v-if="mostrarEditar.fecha_final"></i>
+			</small>
+			<br><br>
+			<small class="text-muted">Descripcion:</small>
+			<div class="d-flex justify-content-between" @mouseover="mostrarEditar.descripcion = true" @mouseleave="mostrarEditar.descripcion = false">
+				<p>${ curso.descripcion }</p>
+				<button class="btn btn-link text-info" style="text-decoration: none;" @click="abrirModalDescripcion" v-if="mostrarEditar.descripcion">
+					<i class="fas fa-pen" data-toggle="tooltip" title="Editar descripcion"></i>
+				</button>
+			</div>
+		</fieldset>
 	</section>
+	<section class="container bg-white py-3 px-4 rounded mt-3">
+		<form @submit.prevent="" class="d-flex">
+			<small class="text-muted align-self-end mb-3">Estudiantes registrados: ${ curso.estudiantes.length }</small>
+			<div class="form-group ml-auto">
+				<input type="text" class="form-control" placeholder="Filtrar">
+			</div>
+		</form>
+		<table class="table">
+			<thead>
+				<th>Nombres</th>
+				<th>Apellidos</th>
+				<th>Correo</th>
+			</thead>
+			<tbody v-for="est in curso.estudiantes">
+				<td>${ est.nombres }</td>
+				<td>${ est.apellidos }</td>
+				<td>${ est.correo }</td>
+			</tbody>
+		</table>
+	</section>
+
+	<!-- MODAL NOMBRE -->
+	<div class="modal fade" id="nombreModal" tabindex="-1" role="dialog" aria-labelledby="nombreModalLabel" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h5 class="modal-title" id="nombreModalLabel">Actualizar nombre</h5>
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+	            <form @submit.prevent="cambiarNombre">
+	            	<div class="modal-body">
+		                <div class="row">
+		                	<div class="col-md-8 offset-md-2">
+		                		<div class="form-group">
+		                			<label>Nombre</label>
+		                			<input type="text" class="form-control" placeholder="Nombre" v-model="nombre_form.nombre">
+		                			<small class="text-danger" v-if="errors.nombre_form.nombre">${ errors.nombre_form.nombre[0].message }</small>
+		                		</div>
+		                	</div>
+		                </div>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+		                <button type="submit" class="btn btn-primary">Guardar</button>
+		            </div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+
+	<!-- MODAL FECHA -->
+	<div class="modal fade" id="fechaModal" tabindex="-1" role="dialog" aria-labelledby="fechaModalLabel" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h5 class="modal-title" id="fechaModalLabel">Cambiar fecha ${ fecha_form.titulo }</h5>
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+	            <form @submit.prevent="cambiarFecha">
+	            	<div class="modal-body">
+		                <div class="row">
+		                	<div class="col-md-8 offset-md-2">
+		                		<div class="form-group">
+		                			<label>Fecha ${ fecha_form.titulo }</label>
+		                			<input type="date" class="form-control" :placeholder="'Fecha '+fecha_form.titulo" v-model="fecha_form.fecha">
+		                			<small class="text-danger" v-if="errors.nombre_form.nombre">${ errors.fecha_form.fecha[0].message }</small>
+		                		</div>
+		                	</div>
+		                </div>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+		                <button type="submit" class="btn btn-primary">Guardar</button>
+		            </div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+	
+	<!-- MODAL DE DESCRIPCION -->
+	<div class="modal fade" id="descripcionModal" tabindex="-1" role="dialog" aria-labelledby="descripcionModalLabel" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h5 class="modal-title" id="descripcionModalLabel">Modificar descripción</h5>
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+	            <form @submit.prevent="cambiarDescripcion">
+	            	<div class="modal-body">
+		                <div class="row">
+		                	<div class="col-md-8 offset-md-2">
+		                		<div class="form-group">
+		                			<label>Descripción</label>
+		                			<textarea rows="5" class="form-control" v-model="descripcion_form.descripcion"></textarea>
+		                			<small class="text-danger" v-if="errors.descripcion_form.descripcion">${ errors.descripcion_form.descripcion[0].message }</small>
+		                		</div>
+		                	</div>
+		                </div>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+		                <button type="submit" class="btn btn-primary">Guardar</button>
+		            </div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
 
 {% endblock %}
 
 {% block scripts %}
 
-	<script src="{% static 'js/profesor.js' %}"></script>
+	<script src="{% static 'js/curso.js' %}"></script>
 
 {% endblock %}

@@ -11,8 +11,11 @@ urlpatterns = [
     path('logout/', views.logout_view),
 
     path('profesor/', profesor_views.index),
-    path('profesor/cursos', profesor_views.cursos),
-    path('profesor/registrar-curso', profesor_views.registrarCurso),
+    path('profesor/cursos/', profesor_views.cursos),
+    path('profesor/registrar-curso/', profesor_views.registrarCurso),
 
-    path('profesor/curso/<int:num>', profesor_views.curso_view),
+    path('profesor/curso<int:num>/', profesor_views.curso_view),
+    path('profesor/curso<int:num>/datos-curso/', profesor_views.datosCurso),
+    path('profesor/curso<int:num>/cambiar-nombre/', profesor_views.cambiarNombre),
+    path('profesor/curso<int:num>/cambiar-fecha<str:keyword>/', profesor_views.cambiarFecha),
 ]
