@@ -17,7 +17,13 @@ function cerrarCargando () {
 
 function mostrarError (data) {
 	var titulo = data.split('<h1>')[1].split('</h1>')[0];
-	var texto = data.split('<pre class="exception_value">')[1].split('</pre>')[0];
+	var texto = data.split('<pre class="exception_value">');
+
+	if (texto.length > 1) texto = texto[1].split('</pre>')[0];
+	else {
+		texto = titulo;
+		titulo = 'Error interno del servidor';
+	};
 
 	var div = document.createElement('DIV');
 
@@ -25,7 +31,7 @@ function mostrarError (data) {
 	titulo = div.innerText;
 
 	div.innerHTML = texto;
-	texto = div.innerHTML;
+	texto = div.innerText;
 	
 	swal(titulo, texto, 'error');
 }
