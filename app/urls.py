@@ -18,4 +18,5 @@ urlpatterns = [
     path('profesor/curso<int:num>/datos-curso/', profesor_views.datosCurso),
     path('profesor/curso<int:num>/cambiar-nombre/', profesor_views.cambiarNombre),
     path('profesor/curso<int:num>/cambiar-fecha<str:keyword>/', profesor_views.cambiarFecha),
+    path('profesor/curso<int:num>/cambiar-descripcion/', profesor_views.cambiarDescripcion),
 ]

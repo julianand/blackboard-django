@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2019 a las 23:00:54
+-- Tiempo de generación: 27-05-2019 a las 23:43:13
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -224,7 +224,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('3vdflu992ft6tw331dqiarig3kuoqwtg', 'ODFjYTU3OTNiNmFhYzY1MjhiYWUxMWE2Nzc5MTNhMjAxZTM2ZmY5Yzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2NzlkMDVmMmJjMTE0NzdiMDdiZTU5ODgzNzEwYjQ4NGY3ZWRlNGUxIn0=', '2019-06-07 15:30:11.055938');
+('xalpxnwaaut1qzgu3yfzpn5byfmd75x0', 'ODFjYTU3OTNiNmFhYzY1MjhiYWUxMWE2Nzc5MTNhMjAxZTM2ZmY5Yzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2NzlkMDVmMmJjMTE0NzdiMDdiZTU5ODgzNzEwYjQ4NGY3ZWRlNGUxIn0=', '2019-06-10 16:07:41.716592');
 
 -- --------------------------------------------------------
 
@@ -269,6 +269,21 @@ INSERT INTO `rol` (`id`, `nombre`, `root`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tarea`
+--
+
+CREATE TABLE `tarea` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `descripcion` varchar(500) NOT NULL,
+  `fecha_inicio` date NOT NULL,
+  `fecha_final` date NOT NULL,
+  `curso_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -288,7 +303,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `password`, `last_login`, `nombre`, `updated`, `created`, `persona_id`, `rol_id`) VALUES
-(1, 'pbkdf2_sha256$120000$EUPbEA5k4V8p$iybGwawPIylckEbGlqIoUfmWOql8j2J2vnUvntGryXo=', '2019-05-24 15:30:10.810924', 'jpitre', '2019-04-24 15:26:14.808910', '2019-04-24 15:26:14.808910', 1, 1);
+(1, 'pbkdf2_sha256$120000$EUPbEA5k4V8p$iybGwawPIylckEbGlqIoUfmWOql8j2J2vnUvntGryXo=', '2019-05-27 16:07:41.653588', 'jpitre', '2019-04-24 15:26:14.808910', '2019-04-24 15:26:14.808910', 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -371,6 +386,12 @@ ALTER TABLE `rol`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `tarea`
+--
+ALTER TABLE `tarea`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -428,6 +449,11 @@ ALTER TABLE `persona`
 --
 ALTER TABLE `rol`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `tarea`
+--
+ALTER TABLE `tarea`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --

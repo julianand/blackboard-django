@@ -4,17 +4,19 @@ var app = new Vue({
 	el: '#app',
 	delimiters: [ '${', '}' ],
 	data: {
-		errors: { nombre_form: {}, fecha_form: {}, descripcion_form: {} },
+		errors: { nombre_form: {}, fecha_form: {}, descripcion_form: {}, tarea: {} },
 		curso: { estudiantes: [] },
+		nombre_form: { nombre: '' },
+		descripcion_form: {},
+		fecha_form: {},
+		tarea: {},
+		titulo_modal_tarea: '',
 		mostrarEditar: {
 			nombre: false,
 			fecha_inicio: false,
 			fecha_final: false,
 			descripcion: false
-		},
-		nombre_form: { nombre: '' },
-		descripcion_form: {},
-		fecha_form: {}
+		}
 	},
 	methods: {
 		abrirModalNombre: function () {
@@ -28,6 +30,16 @@ var app = new Vue({
 		abrirModalDescripcion: function () {
 			this.descripcion_form = { descripcion: this.curso.descripcion };
 			$('#descripcionModal').modal('show');
+		},
+		abrirModalTarea: function (cmd) {
+			this.tarea = {};
+
+			if (cmd == 'new') this.titulo_modal_tarea = 'Nueva tarea';
+			else if (cmd == 'edit') {
+				this.titulo_modal_tarea = 'Editar tarea';
+			}
+
+			$('#tareaModal').modal('show');
 		},
 		cambiarNombre: function () {
 			var vue = this;
@@ -73,6 +85,22 @@ var app = new Vue({
 				vue.curso.descripcion = vue.descripcion_form.descripcion;
 				$('#descripcionModal').modal('hide');
 				swal('Exito', 'Descripcion modificada con exito', 'success');
+			}).catch(function (error) {
+				cerrarCargando();
+
+				if (error.response.status == '422') vue.errors.descripcion_form = error.response.data;
+				else mostrarError(error.response.data);
+			});
+		},
+		guardarTarea: function () {
+			var vue = this;
+
+			cargando();
+			axios.post('guardar-tarea/', objectToFormData(vue.tarea)).then(function (response) {
+				cerrarCargando();
+
+				$('#tareaModal').modal('hide');
+				swal('Exito', '¡Tarea guardada con exito!', 'success');
 			}).catch(function (error) {
 				cerrarCargando();
 

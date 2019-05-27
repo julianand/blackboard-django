@@ -48,6 +48,7 @@
 					<i class="fas fa-pen" data-toggle="tooltip" title="Editar descripcion"></i>
 				</button>
 			</div>
+			<button class="btn btn-primary" @click="abrirModalTarea('new')">Añadir tarea</button>
 		</fieldset>
 	</section>
 	<section class="container bg-white py-3 px-4 rounded mt-3">
@@ -154,6 +155,53 @@
 		                		</div>
 		                	</div>
 		                </div>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+		                <button type="submit" class="btn btn-primary">Guardar</button>
+		            </div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+
+	<!-- MODAL DE AGREGAR TAREA -->
+	<div class="modal fade" id="tareaModal" tabindex="-1" role="dialog" aria-labelledby="tareaModalLabel" aria-hidden="true">
+	    <div class="modal-dialog modal-lg" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h5 class="modal-title" id="tareaModalLabel">${ titulo_modal_tarea }</h5>
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+	            <form @submit.prevent="guardarTarea">
+	            	<div class="modal-body">
+		                <div class="row">
+		                	<div class="col-md-6">
+		                		<div class="form-group">
+				            		<label>Nombre de la tarea</label>
+				            		<input type="text" class="form-control" placeholder="Nombre" v-model="tarea.nombre" @change="errors.tarea.nombre=undefined">
+				            		<small class="text-danger" v-if="errors.tarea.nombre">${ errors.tarea.nombre[0].message }</small>
+				            	</div>
+		                	</div>
+		                	<div class="col-md-6">
+		                		<div class="form-group">
+		                			<label>Fecha de finalizacion</label>
+		            				<input type="date" class="form-control" v-model="tarea.fecha_final" @change="errors.tarea.fecha_final=undefined">
+		            				<small class="text-danger" v-if="errors.tarea.fecha_final">${ errors.tarea.fecha_final[0].message }</small>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="form-group">
+                			<label>Descripcion</label>
+                			<textarea cols="30" rows="5" class="form-control" placeholder="Descripcion" v-model="tarea.descripcion" @change="errors.tarea.descripcion=undefined"></textarea>
+            				<small class="text-danger" v-if="errors.tarea.descripcion">${ errors.tarea.descripcion[0].message }</small>
+                		</div>
+                		<div class="form-group">
+                			<input type="file" class="form-control-file" @change="errors.tarea.file=undefined;tarea.file=$event.target.files[0]">
+            				<small class="text-danger" v-if="errors.tarea.file">${ errors.tarea.file[0].message }</small>
+                		</div>
 		            </div>
 		            <div class="modal-footer">
 		                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
