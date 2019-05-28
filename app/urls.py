@@ -19,4 +19,5 @@ urlpatterns = [
     path('profesor/curso<int:num>/cambiar-nombre/', profesor_views.cambiarNombre),
     path('profesor/curso<int:num>/cambiar-fecha<str:keyword>/', profesor_views.cambiarFecha),
     path('profesor/curso<int:num>/cambiar-descripcion/', profesor_views.cambiarDescripcion),
+    path('profesor/curso<int:num>/guardar-tarea/', profesor_views.guardarTarea),
 ]

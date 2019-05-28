@@ -112,3 +112,12 @@ def cambiarDescripcion (request, num):
 	response = HttpResponse(form.errors.as_json())
 	response.status_code = 422
 	return response
+
+@require_http_methods(['POST'])
+@login_required
+def guardarTarea (request, num):
+	datos = { 'nombre': request.POST['nombre'] }
+
+	response = HttpResponse(json.dumps(datos))
+	# response.status_code = 422
+	return response
