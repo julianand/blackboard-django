@@ -3,8 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
 
-from app.forms import RegistroCursoForm, NombreCursoForm, FechaCursoForm, DescripcionCursoForm
-from app.models import Curso
+from app.forms import RegistroCursoForm, NombreCursoForm, FechaCursoForm, DescripcionCursoForm, TareaForm
+from app.models import Curso, Tarea
 
 import json, datetime
 
@@ -54,7 +54,14 @@ def datosCurso (request, num):
 		'descripcion': curso.descripcion,
 		'fecha_inicio': curso.fecha_inicio.isoformat(),
 		'fecha_final': curso.fecha_final.isoformat(),
-		'estudiantes': [ { 'id': est.id, 'nombres': est.nombres, 'apellidos': est.apellidos } for est in curso.estudiantes.all() ]
+		'estudiantes': [ { 'id': est.id, 'nombres': est.nombres, 'apellidos': est.apellidos } for est in curso.estudiantes.all() ],
+		'tareas': [ {
+			'id': tar.id,
+			'nombre': tar.nombre,
+			'descripcion': tar.descripcion,
+			'fecha_final': str(tar.fecha_final),
+			'fecha_inicio': str(tar.fecha_inicio)
+		} for tar in curso.tarea_set.all() ]
 	}
 
 	return HttpResponse(json.dumps(res))
@@ -116,8 +123,23 @@ def cambiarDescripcion (request, num):
 @require_http_methods(['POST'])
 @login_required
 def guardarTarea (request, num):
-	datos = { 'nombre': request.POST['nombre'] }
+	form = TareaForm(request.POST, request.FILES)
 
-	response = HttpResponse(json.dumps(datos))
-	# response.status_code = 422
+	if form.is_valid() and not form.has_error('fecha_final'):
+		if request.POST['fecha_final'] < str(datetime.datetime.now().date()):
+			form.add_error('fecha_final', 'La fecha final debe ser mayor a hoy')
+		else:
+			tarea = Tarea()
+			tarea.nombre = request.POST['nombre']
+			tarea.descripcion = request.POST['descripcion']
+			tarea.fecha_inicio = datetime.datetime.now()
+			tarea.fecha_final = request.POST['fecha_final']
+			tarea.file = request.FILES['file']
+			tarea.curso_id = num
+			tarea.save()
+
+			return HttpResponse('')
+
+	response = HttpResponse(form.errors.as_json())
+	response.status_code = 422
 	return response

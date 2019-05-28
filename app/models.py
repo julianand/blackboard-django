@@ -105,3 +105,15 @@ class CursoEstudiante(models.Model):
         managed = False
         db_table = 'curso_estudiante'
         unique_together = (('curso', 'estudiante'),)
+
+class Tarea(models.Model):
+    nombre = models.CharField(max_length=200)
+    descripcion = models.CharField(max_length=500)
+    fecha_inicio = models.DateField(auto_now_add=True)
+    fecha_final = models.DateField()
+    file = models.FileField(upload_to='app/media/tareas/')
+    curso = models.ForeignKey(Curso, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'tarea'

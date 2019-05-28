@@ -33,6 +33,7 @@ var app = new Vue({
 		},
 		abrirModalTarea: function (cmd) {
 			this.tarea = {};
+			$('#tarea-file-text').val('Seleccione un archivo...');
 
 			if (cmd == 'new') this.titulo_modal_tarea = 'Nueva tarea';
 			else if (cmd == 'edit') {
@@ -40,6 +41,12 @@ var app = new Vue({
 			}
 
 			$('#tareaModal').modal('show');
+		},
+		elegirTarea: function (e) {
+			var files = e.target.files;
+
+			this.tarea.file = files.length != 0 ? files[0]:undefined;
+			$('#tarea-file-text').val(files.length != 0 ? files[0].name:'Seleccione un archivo...');
 		},
 		cambiarNombre: function () {
 			var vue = this;
@@ -104,7 +111,7 @@ var app = new Vue({
 			}).catch(function (error) {
 				cerrarCargando();
 
-				if (error.response.status == '422') vue.errors.descripcion_form = error.response.data;
+				if (error.response.status == '422') vue.errors.tarea = error.response.data;
 				else mostrarError(error.response.data);
 			});
 		}

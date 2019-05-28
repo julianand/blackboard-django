@@ -27,3 +27,9 @@ class FechaCursoForm (forms.Form):
 
 class DescripcionCursoForm (forms.Form):
 	descripcion = forms.CharField()
+
+class TareaForm (forms.Form):
+	nombre = forms.CharField()
+	descripcion = forms.CharField()
+	fecha_final = forms.DateField()
+	file = forms.FileField()

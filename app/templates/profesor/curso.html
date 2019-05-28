@@ -48,7 +48,24 @@
 					<i class="fas fa-pen" data-toggle="tooltip" title="Editar descripcion"></i>
 				</button>
 			</div>
-			<button class="btn btn-primary" @click="abrirModalTarea('new')">Añadir tarea</button>
+			<hr>
+			<h3>Tareas</h3>
+			<button class="btn btn-primary btn-sm" @click="abrirModalTarea('new')">Añadir tarea</button>
+			<br><br>
+			<div class="row">
+				<div class="col-md-4 col-sm-6" v-for="item in curso.tareas">
+					<div class="card">
+					    <div class="card-body">
+					        <h5 class="card-title">${ item.nombre }</h5>
+					        <h6 class="card-subtitle mb-2 text-danger"><small>Finaliza en: <b>${ item.fecha_final }</b></small></h6>
+					        <br>
+					        <p class="card-text">${ item.descripcion }</p>
+					        <a href="#" class="card-link">Ver adjunto</a>
+					        <a href="#" class="card-link">Detalles</a>
+					    </div>
+					</div>
+				</div>
+			</div>
 		</fieldset>
 	</section>
 	<section class="container bg-white py-3 px-4 rounded mt-3">
@@ -198,10 +215,13 @@
                 			<textarea cols="30" rows="5" class="form-control" placeholder="Descripcion" v-model="tarea.descripcion" @change="errors.tarea.descripcion=undefined"></textarea>
             				<small class="text-danger" v-if="errors.tarea.descripcion">${ errors.tarea.descripcion[0].message }</small>
                 		</div>
-                		<div class="form-group">
-                			<input type="file" class="form-control-file" @change="errors.tarea.file=undefined;tarea.file=$event.target.files[0]">
-            				<small class="text-danger" v-if="errors.tarea.file">${ errors.tarea.file[0].message }</small>
-                		</div>
+                		<input id="tarea-file" type="file" style="display: none;" @change="elegirTarea">
+	                	<div class="input-group">
+	                		<div class="input-group-prepend">
+	                			<button class="btn btn-secondary" type="button" @click="$('#tarea-file').click()">Seleccionar</button>
+	                		</div>
+	                		<input id="tarea-file-text" type="text" class="form-control" value="Selecciona un archivo" disabled>
+	                	</div>
 		            </div>
 		            <div class="modal-footer">
 		                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
