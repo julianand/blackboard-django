@@ -19,7 +19,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -83,8 +82,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'blackboard',
         'USER': 'root',
-        # 'PASSWORD': 'frank9108',
-        'PASSWORD': '',
+        'PASSWORD': 'frank9108',
+        # 'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306'
     }
@@ -121,7 +120,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = False
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
