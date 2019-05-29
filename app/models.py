@@ -54,7 +54,7 @@ class Usuario (AbstractBaseUser):
     )
 
     rol = models.ForeignKey(Rol, on_delete=models.CASCADE)
-    persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    persona = models.OneToOneField(Persona, on_delete=models.CASCADE)
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -112,7 +112,7 @@ class Tarea(models.Model):
     fecha_inicio = models.DateField(auto_now_add=True)
     fecha_final = models.DateField()
     file = models.FileField(upload_to='app/media/tareas/')
-    curso = models.ForeignKey(Curso, models.DO_NOTHING)
+    curso = models.ForeignKey(Curso, models.CASCADE)
 
     class Meta:
         managed = False

@@ -222,6 +222,7 @@
 	                		</div>
 	                		<input id="tarea-file-text" type="text" class="form-control" value="Selecciona un archivo" disabled>
 	                	</div>
+		            	<small class="text-danger" v-if="errors.tarea.file">${ errors.tarea.file[0].message }</small>
 		            </div>
 		            <div class="modal-footer">
 		                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>

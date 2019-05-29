@@ -45,6 +45,8 @@ var app = new Vue({
 		elegirTarea: function (e) {
 			var files = e.target.files;
 
+			this.errors.tarea.file = '';
+
 			this.tarea.file = files.length != 0 ? files[0]:undefined;
 			$('#tarea-file-text').val(files.length != 0 ? files[0].name:'Seleccione un archivo...');
 		},
