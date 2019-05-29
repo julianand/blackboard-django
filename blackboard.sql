@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2019 a las 23:43:13
+-- Tiempo de generación: 30-05-2019 a las 00:06:48
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -224,7 +224,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('xalpxnwaaut1qzgu3yfzpn5byfmd75x0', 'ODFjYTU3OTNiNmFhYzY1MjhiYWUxMWE2Nzc5MTNhMjAxZTM2ZmY5Yzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2NzlkMDVmMmJjMTE0NzdiMDdiZTU5ODgzNzEwYjQ4NGY3ZWRlNGUxIn0=', '2019-06-10 16:07:41.716592');
+('4n05zibh7mnsk5vwejz8zh90b3qglqsp', 'ODFjYTU3OTNiNmFhYzY1MjhiYWUxMWE2Nzc5MTNhMjAxZTM2ZmY5Yzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2NzlkMDVmMmJjMTE0NzdiMDdiZTU5ODgzNzEwYjQ4NGY3ZWRlNGUxIn0=', '2019-06-12 20:26:15.505983');
 
 -- --------------------------------------------------------
 
@@ -278,8 +278,17 @@ CREATE TABLE `tarea` (
   `descripcion` varchar(500) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_final` date NOT NULL,
+  `file` varchar(200) NOT NULL,
   `curso_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tarea`
+--
+
+INSERT INTO `tarea` (`id`, `nombre`, `descripcion`, `fecha_inicio`, `fecha_final`, `file`, `curso_id`) VALUES
+(3, 'respirar', 'respira bien xd', '2019-05-28', '2019-06-02', 'app/media/tareas/12.COBIT5-Governance-and-Management-Practices-Activities_April2014.en.es.xlsx', 4),
+(8, 'Llorar', 'llorar todas las noches recordando que tu vida es una mínima existencia para el planeta y las personas que te rodean y darte cuenta que no vales la pena como persona, que no mereces nada y es mejor que no existas para no molestar la energía de la propia existencia de este plano dimensional.', '2019-05-29', '2019-06-23', 'app/media/tareas/191480.docx', 4);
 
 -- --------------------------------------------------------
 
@@ -303,7 +312,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `password`, `last_login`, `nombre`, `updated`, `created`, `persona_id`, `rol_id`) VALUES
-(1, 'pbkdf2_sha256$120000$EUPbEA5k4V8p$iybGwawPIylckEbGlqIoUfmWOql8j2J2vnUvntGryXo=', '2019-05-27 16:07:41.653588', 'jpitre', '2019-04-24 15:26:14.808910', '2019-04-24 15:26:14.808910', 1, 1);
+(1, 'pbkdf2_sha256$120000$EUPbEA5k4V8p$iybGwawPIylckEbGlqIoUfmWOql8j2J2vnUvntGryXo=', '2019-05-29 20:26:15.493983', 'jpitre', '2019-04-24 15:26:14.808910', '2019-04-24 15:26:14.808910', 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -389,7 +398,8 @@ ALTER TABLE `rol`
 -- Indices de la tabla `tarea`
 --
 ALTER TABLE `tarea`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `curso_id` (`curso_id`);
 
 --
 -- Indices de la tabla `usuario`
@@ -453,7 +463,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `tarea`
 --
 ALTER TABLE `tarea`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
@@ -495,6 +505,12 @@ ALTER TABLE `curso_estudiante`
 ALTER TABLE `django_admin_log`
   ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_usuario_id` FOREIGN KEY (`user_id`) REFERENCES `usuario` (`id`);
+
+--
+-- Filtros para la tabla `tarea`
+--
+ALTER TABLE `tarea`
+  ADD CONSTRAINT `tarea_ibfk_1` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`id`);
 
 --
 -- Filtros para la tabla `usuario`
