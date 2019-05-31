@@ -1,6 +1,6 @@
 axios.defaults.baseURL = window.location.href + '/';
 
-var app = new Vue({
+new Vue({
 	el: '#app',
 	delimiters: [ '${', '}' ],
 	data: {
@@ -116,6 +116,22 @@ var app = new Vue({
 				if (error.response.status == '422') vue.errors.tarea = error.response.data;
 				else mostrarError(error.response.data);
 			});
+		},
+		verAdjunto: function (id) {
+			cargando();
+			axios.get(`t${id}/ver-adjunto`, { responseType: 'arraybuffer' }).then(function (response) {
+				cerrarCargando();
+
+				var blob = new Blob([ response.data ], { type: response.headers['content-type'] + '; charset=UTF-8' });
+				var a = document.createElement('a');
+				a.href = URL.createObjectURL(blob);
+				a.download = response.headers['content-disposition'].split('filename="')[1].slice(0, -1);
+				a.click()
+			}).catch(function (error) {
+				cerrarCargando();
+
+				swal('Error', error.response.data, 'error');
+			})
 		}
 	},
 	created: function () {
