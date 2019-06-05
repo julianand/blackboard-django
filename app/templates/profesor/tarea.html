@@ -21,7 +21,17 @@
 	</ul>
 	<br>
 	<section class="container bg-white py-3 px-4 rounded">
-		hola
+		<small class="text-muted">Nombre de la tarea:</small>
+		<h1>${ tarea.nombre }</h1>
+		<small class="text-muted">Fecha de inicio:</small> ${ tarea.fecha_inicio }
+		<br>
+		<small class="text-muted">Fecha de finalización:</small> ${ tarea.fecha_final }
+		<p>
+			<small class="text-muted">Descripcion:</small>
+			<br>
+			${ tarea.descripcion }
+		</p>
+		<a href="" role="button" @click.prevent="verAdjunto">Ver adjunto</a>
 	</section>
 
 {% endblock %}
