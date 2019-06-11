@@ -19,6 +19,11 @@ new Vue({
 		}
 	},
 	methods: {
+		init: function () {
+			axios.get('datos-curso/').then(response => {
+				this.curso = response.data;
+			});
+		},
 		abrirModalNombre: function () {
 			this.nombre_form.nombre = this.curso.nombre;
 			$('#nombreModal').modal('show');
@@ -107,7 +112,8 @@ new Vue({
 			cargando();
 			axios.post('guardar-tarea/', objectToFormData(vue.tarea)).then(function (response) {
 				cerrarCargando();
-
+				init();
+				
 				$('#tareaModal').modal('hide');
 				swal('Exito', '¡Tarea guardada con exito!', 'success');
 			}).catch(function (error) {
@@ -139,9 +145,6 @@ new Vue({
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 
-		var vue = this;
-		axios.get('datos-curso/').then(function (response) {
-			vue.curso = response.data;
-		});
+		init();
 	}
 })

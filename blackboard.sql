@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-06-2019 a las 14:27:25
+-- Tiempo de generación: 11-06-2019 a las 14:45:18
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -226,6 +226,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('4uwfid13ydqmfckpg8fp554eqq8xux8q', 'ODFjYTU3OTNiNmFhYzY1MjhiYWUxMWE2Nzc5MTNhMjAxZTM2ZmY5Yzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2NzlkMDVmMmJjMTE0NzdiMDdiZTU5ODgzNzEwYjQ4NGY3ZWRlNGUxIn0=', '2019-06-25 05:07:01.533750'),
 ('ibdoskzytlp13cbzjvjvz19eqh3dipha', 'ODFjYTU3OTNiNmFhYzY1MjhiYWUxMWE2Nzc5MTNhMjAxZTM2ZmY5Yzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2NzlkMDVmMmJjMTE0NzdiMDdiZTU5ODgzNzEwYjQ4NGY3ZWRlNGUxIn0=', '2019-06-14 21:31:12.082449');
 
 -- --------------------------------------------------------
@@ -291,7 +292,8 @@ CREATE TABLE `tarea` (
 
 INSERT INTO `tarea` (`id`, `nombre`, `descripcion`, `fecha_inicio`, `fecha_final`, `file`, `curso_id`) VALUES
 (3, 'respirar', 'respira bien xd', '2019-05-28', '2019-06-02', 'app/media/tareas/12.COBIT5-Governance-and-Management-Practices-Activities_April2014.en.es.xlsx', 4),
-(8, 'Llorar', 'llorar todas las noches recordando que tu vida es una mínima existencia para el planeta y las personas que te rodean y darte cuenta que no vales la pena como persona, que no mereces nada y es mejor que no existas para no molestar la energía de la propia existencia de este plano dimensional.', '2019-05-29', '2019-06-23', 'app/media/tareas/191480.docx', 4);
+(8, 'Llorar', 'llorar todas las noches recordando que tu vida es una mínima existencia para el planeta y las personas que te rodean y darte cuenta que no vales la pena como persona, que no mereces nada y es mejor que no existas para no molestar la energía de la propia existencia de este plano dimensional.', '2019-05-29', '2019-06-23', 'app/media/tareas/191480.docx', 4),
+(9, 'TAREA QUE NO TIENE NADA QUE VER CON LA CLASE', 'Todos los detalles de la tarea en el adjunto.', '2019-06-11', '2019-07-18', 'app/media/tareas/tarea.txt', 5);
 
 -- --------------------------------------------------------
 
@@ -315,7 +317,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `password`, `last_login`, `nombre`, `updated`, `created`, `persona_id`, `rol_id`) VALUES
-(1, 'pbkdf2_sha256$120000$EUPbEA5k4V8p$iybGwawPIylckEbGlqIoUfmWOql8j2J2vnUvntGryXo=', '2019-06-02 02:51:05.930131', 'jpitre', '2019-04-24 15:26:14.808910', '2019-04-24 15:26:14.808910', 1, 1),
+(1, 'pbkdf2_sha256$120000$EUPbEA5k4V8p$iybGwawPIylckEbGlqIoUfmWOql8j2J2vnUvntGryXo=', '2019-06-11 05:07:01.429192', 'jpitre', '2019-04-24 15:26:14.808910', '2019-04-24 15:26:14.808910', 1, 1),
 (2, 'pbkdf2_sha256$120000$UzGrOBAOG9Zl$uC5cigNh1en7hqzjdX/8duRtl0txbwYKt8KlMixErOI=', '2019-05-31 21:30:43.161795', 'cpitre', '2019-05-31 21:30:31.666138', '2019-05-31 21:30:31.666138', 2, 1);
 
 --
@@ -476,7 +478,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `tarea`
 --
 ALTER TABLE `tarea`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
