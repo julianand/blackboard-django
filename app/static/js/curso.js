@@ -145,6 +145,6 @@ new Vue({
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 
-		init();
+		this.init();
 	}
 })

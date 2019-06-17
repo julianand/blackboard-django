@@ -4,12 +4,14 @@ var app = new Vue({
 	el: '#app',
 	delimiters: [ '${', '}' ],
 	data: {
-		errors: {},
-		tarea: {}
+		errors: { tarea: {} },
+		tarea: {},
 	},
 	methods: {
 		init: function () {
-			axios.post('').then(response => { this.tarea = response.data; })
+			axios.post('').then(response => {
+				this.tarea = response.data;
+			})
 			.catch(error => { mostrarError(error.response.data); })
 		},
 		verAdjunto: function () {
@@ -27,9 +29,13 @@ var app = new Vue({
 
 				swal('Error', error.response.data, 'error');
 			})
+		},
+		abrirModalTarea: function () {
+
 		}
 	},
 	created: function () {
+		moment.locale('es');
 		this.init();
 	}
 });

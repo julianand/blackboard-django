@@ -40,4 +40,3 @@ def index (request, num, tarea_id):
 		return HttpResponse(json.dumps(res))
 
 	return render(request, 'profesor/tarea.html')
-

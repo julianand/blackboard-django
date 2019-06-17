@@ -23,15 +23,16 @@
 	<section class="container bg-white py-3 px-4 rounded">
 		<small class="text-muted">Nombre de la tarea:</small>
 		<h1>${ tarea.nombre }</h1>
-		<small class="text-muted">Fecha de inicio:</small> ${ tarea.fecha_inicio }
+		<small class="text-muted">Fecha de inicio:</small> ${ moment(tarea.fecha_inicio).format("dddd D MMMM YYYY") }
 		<br>
-		<small class="text-muted">Fecha de finalización:</small> ${ tarea.fecha_final }
+		<small class="text-muted">Fecha de finalización:</small> ${ moment(tarea.fecha_final).format("dddd D MMMM YYYY") }
 		<p>
 			<small class="text-muted">Descripcion:</small>
 			<br>
 			${ tarea.descripcion }
 		</p>
-		<a href="" role="button" @click.prevent="verAdjunto">Ver adjunto</a>
+		<a href="" role="button" @click.prevent="verAdjunto">Ver adjunto</a> &nbsp;
+		<a href="" role="button" @click.prevent="abrirModalTarea">Editar tarea</a>
 	</section>
 	<br>
 	<section class="container bg-white py-3 px-4 rounded">
@@ -46,10 +47,61 @@
 		</table>
 	</section>
 
+	<div class="modal fade" id="tareaModal" tabindex="-1" role="dialog" aria-labelledby="tareaModalLabel" aria-hidden="true">
+	    <div class="modal-dialog modal-lg" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h5 class="modal-title" id="tareaModalLabel">Modificar tarea</h5>
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+	            <form @submit.prevent="guardarTarea">
+	            	<div class="modal-body">
+		                <div class="row">
+		                	<div class="col-md-6">
+		                		<div class="form-group">
+				            		<label>Nombre de la tarea</label>
+				            		<input type="text" class="form-control" placeholder="Nombre" v-model="tarea.nombre" @change="errors.tarea.nombre=undefined">
+				            		<small class="text-danger" v-if="errors.tarea.nombre">${ errors.tarea.nombre[0].message }</small>
+				            	</div>
+		                	</div>
+		                	<div class="col-md-6">
+		                		<div class="form-group">
+		                			<label>Fecha de finalizacion</label>
+		            				<input type="date" class="form-control" v-model="tarea.fecha_final" @change="errors.tarea.fecha_final=undefined">
+		            				<small class="text-danger" v-if="errors.tarea.fecha_final">${ errors.tarea.fecha_final[0].message }</small>
+		                		</div>
+		                	</div>
+		                </div>
+		                <div class="form-group">
+                			<label>Descripcion</label>
+                			<textarea cols="30" rows="5" class="form-control" placeholder="Descripcion" v-model="tarea.descripcion" @change="errors.tarea.descripcion=undefined"></textarea>
+            				<small class="text-danger" v-if="errors.tarea.descripcion">${ errors.tarea.descripcion[0].message }</small>
+                		</div>
+                		<input id="tarea-file" type="file" style="display: none;">
+	                	<div class="input-group">
+	                		<div class="input-group-prepend">
+	                			<button class="btn btn-secondary" type="button" @click="$('#tarea-file').click()">Seleccionar</button>
+	                		</div>
+	                		<input id="tarea-file-text" type="text" class="form-control" value="Selecciona un archivo" disabled>
+	                	</div>
+		            	<small class="text-danger" v-if="errors.tarea.file">${ errors.tarea.file[0].message }</small>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+		                <button type="submit" class="btn btn-primary">Guardar</button>
+		            </div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+
 {% endblock %}
 
 {% block scripts %}
-
+	
+	<script type="text/javascript" src="{% static 'js/moment-with-locales.js' %}"></script>
 	<script src="{% static 'js/tarea.js' %}"></script>
 
 {% endblock %}

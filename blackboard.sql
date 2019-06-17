@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2019 a las 14:45:18
+-- Tiempo de generación: 17-06-2019 a las 14:42:01
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -226,7 +226,6 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('4uwfid13ydqmfckpg8fp554eqq8xux8q', 'ODFjYTU3OTNiNmFhYzY1MjhiYWUxMWE2Nzc5MTNhMjAxZTM2ZmY5Yzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2NzlkMDVmMmJjMTE0NzdiMDdiZTU5ODgzNzEwYjQ4NGY3ZWRlNGUxIn0=', '2019-06-25 05:07:01.533750'),
 ('ibdoskzytlp13cbzjvjvz19eqh3dipha', 'ODFjYTU3OTNiNmFhYzY1MjhiYWUxMWE2Nzc5MTNhMjAxZTM2ZmY5Yzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2NzlkMDVmMmJjMTE0NzdiMDdiZTU5ODgzNzEwYjQ4NGY3ZWRlNGUxIn0=', '2019-06-14 21:31:12.082449');
 
 -- --------------------------------------------------------
