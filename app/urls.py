@@ -5,7 +5,8 @@ from .views_folder import profesor_views, curso_views, tarea_views
 
 tarea_patterns = [
     path('', tarea_views.index),
-    path('ver-adjunto', tarea_views.verAdjunto)
+    path('ver-adjunto', tarea_views.verAdjunto),
+    path('guardar', tarea_views.guardar)
 ]
 
 curso_patterns = [

@@ -4,8 +4,9 @@ var app = new Vue({
 	el: '#app',
 	delimiters: [ '${', '}' ],
 	data: {
-		errors: { tarea: {} },
+		errors: { tarea: {}, tarea_form: {} },
 		tarea: {},
+		tarea_form: {}
 	},
 	methods: {
 		init: function () {
@@ -19,19 +20,28 @@ var app = new Vue({
 			axios.get(`ver-adjunto`, { responseType: 'arraybuffer' }).then(function (response) {
 				cerrarCargando();
 
-				var blob = new Blob([ response.data ], { type: response.headers['content-type'] + '; charset=UTF-8' });
-				var a = document.createElement('a');
-				a.href = URL.createObjectURL(blob);
-				a.download = response.headers['content-disposition'].split('filename="')[1].slice(0, -1);
-				a.click()
-			}).catch(function (error) {
+				fileResponse(response);
+			})
+			.catch(function (error) {
 				cerrarCargando();
-
 				swal('Error', error.response.data, 'error');
 			})
 		},
 		abrirModalTarea: function () {
+			this.tarea_form = JSON.parse(JSON.stringify(this.tarea));
+			$('#tareaModal').modal('show');
+		},
+		guardarTarea: function () {
+			cargando();
+			axios.post('guardar', objectToFormData(this.tarea_form)).then(response => {
+				cerrarCargando();
 
+				swal('Exito', response.data, 'success');
+			})
+			.catch(error => {
+				cerrarCargando();
+				if (error.status != 422) mostrarError(response.data);
+			})
 		}
 	},
 	created: function () {

@@ -52,8 +52,8 @@ new Vue({
 
 			this.errors.tarea.file = '';
 
-			this.tarea.file = files.length != 0 ? files[0]:undefined;
-			$('#tarea-file-text').val(files.length != 0 ? files[0].name:'Seleccione un archivo...');
+			this.tarea.file = files.length != 0 ? files[0] : undefined;
+			$('#tarea-file-text').val(files.length != 0 ? files[0].name : 'Seleccione un archivo...');
 		},
 		cambiarNombre: function () {
 			var vue = this;
@@ -67,7 +67,7 @@ new Vue({
 				swal('Exito', 'Nombre cambiado con exito.', 'success');
 			}).catch(function (error) {
 				cerrarCargando();
-				
+
 				if (error.response.status == '422') vue.errors.nombre_form = error.response.data;
 				else mostrarError(error.response.data);
 			})
@@ -113,7 +113,7 @@ new Vue({
 			axios.post('guardar-tarea/', objectToFormData(vue.tarea)).then(function (response) {
 				cerrarCargando();
 				init();
-				
+
 				$('#tareaModal').modal('hide');
 				swal('Exito', '¡Tarea guardada con exito!', 'success');
 			}).catch(function (error) {

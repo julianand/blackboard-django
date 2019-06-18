@@ -32,7 +32,7 @@ function mostrarError (data) {
 
 	div.innerHTML = texto;
 	texto = div.innerText;
-	
+
 	swal(titulo, texto, 'error');
 }
 
@@ -78,4 +78,12 @@ function objectToFormData(obj, rootName, ignoreList) {
     appendFormData(obj, rootName);
 
     return formData;
+}
+
+function fileResponse (response) {
+    var blob = new Blob([ response.data ], { type: response.headers['content-type'] + '; charset=UTF-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = response.headers['content-disposition'].split('filename="')[1].slice(0, -1);
+    a.click();
 }

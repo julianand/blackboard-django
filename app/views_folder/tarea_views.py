@@ -30,13 +30,21 @@ def index (request, num, tarea_id):
 	if request.method == 'POST':
 		tarea = Tarea.objects.get(pk=tarea_id)
 		res = {
-			'id': tarea.id,
 			'nombre': tarea.nombre,
 			'descripcion': tarea.descripcion,
 			'fecha_inicio': tarea.fecha_inicio.isoformat(),
-			'fecha_final': tarea.fecha_final.isoformat()
+			'fecha_final': tarea.fecha_final.isoformat(),
+			'file_name': tarea.file.name.split('/')[-1]
 		}
 
 		return HttpResponse(json.dumps(res))
 
 	return render(request, 'profesor/tarea.html')
+
+@require_http_methods([ 'POST' ])
+@login_required
+@require_roles(['PROFESOR'])
+@tarea_test
+def guardar (request, num, tarea_id):
+	tarea = Tarea.objects.get(pk=tarea_id)
+	return HttpResponse('hola');
