@@ -33,3 +33,9 @@ class TareaForm (forms.Form):
 	descripcion = forms.CharField()
 	fecha_final = forms.DateField()
 	file = forms.FileField()
+
+class GuardarTareaForm (forms.Form):
+	nombre = forms.CharField()
+	descripcion = forms.CharField()
+	fecha_final = forms.DateField()
+	file = forms.FileField(required=False)

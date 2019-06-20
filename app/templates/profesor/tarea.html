@@ -80,7 +80,7 @@
             				<small class="text-danger" v-if="errors.tarea_form.descripcion">${ errors.tarea_form.descripcion[0].message }</small>
                 		</div>
                 		<span>Archivo actual: <a href="" @click.prevent="verAdjunto">${ tarea_form.file_name }</a></span>
-                		<input id="tarea-file" type="file" style="display: none;">
+                		<input id="tarea-file" type="file" style="display: none;" @change="setArchivo">
 	                	<div class="input-group">
 	                		<div class="input-group-prepend">
 	                			<button class="btn btn-secondary" type="button" @click="$('#tarea-file').click()">Seleccionar nuevo archivo</button>

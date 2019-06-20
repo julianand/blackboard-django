@@ -1,0 +1,682 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Guar",
+				"GuardarTareaForm\tabc"
+			],
+			[
+				"tarea",
+				"tarea_id\tabc"
+			],
+			[
+				"obje",
+				"objectToFormData〔function〕"
+			],
+			[
+				"respo",
+				"responseType\tabc"
+			],
+			[
+				"a",
+				"a\t<a>"
+			],
+			[
+				"opc",
+				"opcion\t(controller.js)"
+			],
+			[
+				"option",
+				"option\tTag"
+			],
+			[
+				"select",
+				"select\tTag"
+			],
+			[
+				"label",
+				"label\t<label>"
+			],
+			[
+				"script",
+				"script\tTag"
+			],
+			[
+				"link",
+				"link\tTag"
+			],
+			[
+				"Usuario",
+				"UsuarioRol\tabc"
+			],
+			[
+				"pi",
+				"pivot_id\tabc"
+			],
+			[
+				"usuario",
+				"usuario_rol\t(User.php)"
+			],
+			[
+				"pivo",
+				"pivot_id\t(AdminController.php)"
+			],
+			[
+				"inarr",
+				"in_array"
+			],
+			[
+				"inar",
+				"in_array"
+			],
+			[
+				"nombre",
+				"nombre\tabc"
+			],
+			[
+				"apush",
+				"array_push"
+			],
+			[
+				"foreac",
+				"foreach\tforeach …"
+			],
+			[
+				"comp",
+				"compact"
+			],
+			[
+				"compa",
+				"compact\tabc"
+			],
+			[
+				"apu",
+				"array_push"
+			],
+			[
+				"numero",
+				"numero_documento\tabc"
+			],
+			[
+				"per",
+				"persona\tabc"
+			],
+			[
+				"Depen",
+				"DependenciaModalidad\tabc"
+			],
+			[
+				"rol",
+				"rol_ids"
+			],
+			[
+				"roles",
+				"roles_permitidos\tabc"
+			],
+			[
+				"req",
+				"request\tabc"
+			],
+			[
+				"empresasporapo",
+				"empresas_por_aprobar\tabc"
+			],
+			[
+				"getem",
+				"getEmpresas"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/models.py",
+			"settings":
+			{
+				"buffer_size": 3428,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"sublimel",
+				"SublimeLinter: Goto Error"
+			],
+			[
+				"sublime",
+				"SublimeLinter: Toggle Highlights"
+			],
+			[
+				"sublimelinter",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: list",
+				"Package Control: List Packages"
+			],
+			[
+				"sublimelin",
+				"SublimeLinter: Toggle Highlights"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"instak",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 190.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/pruebas/blackboard-django",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/views_folder/curso_views.py",
+		"/C/Users/Fguue/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/Fguue/Documents/.pylintrc",
+		"/C/xampp/htdocs/pruebas/blackboard-django/a.sublime-project",
+		"/C/xampp/htdocs/pruebas/blackboard-django/a.sublime-workspace",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/templates/profesor/tarea.html",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/urls.py",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/models.py",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/forms.py",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/static/js/tarea.js",
+		"/C/Program Files/Sublime Text 3/Packages/Default.sublime-package",
+		"/C/Program Files/Sublime Text 3/sublime_plugin.py",
+		"/C/xampp/htdocs/pruebas/blackboard-django/blackboard/settings.py",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/views_folder/tarea_views.py",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/views_folder/profesor_views.py",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/views_folder/decorators.py",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/static/js/curso.js",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/static/js/defaults.js",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/templates/layouts/homeLayout.html",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/templates/layouts/principalLayout.html",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/__pycache__/__init__.cpython-37.pyc",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/media/tareas/tarea.txt",
+		"/C/xampp/htdocs/pruebas/blackboard-django/app/media/tareas/12.COBIT5-Governance-and-Management-Practices-Activities_April2014.en.es.xlsx",
+		"/C/xampp/htdocs/pruebas/blackboard-django/blackboard.sql",
+		"/C/xampp/htdocs/pruebas/blackboard-django/manage.py",
+		"/C/xampp/htdocs/sil-copia/app/Http/Controllers/HomeController.php",
+		"/C/xampp/htdocs/sil-copia/public/js/controller.js",
+		"/C/xampp/htdocs/sil-copia/public/img/spe/serviciomin.png",
+		"/C/xampp/htdocs/sil-copia/public/img/escudo_unimag.png",
+		"/C/xampp/htdocs/siegnuevo/public/js/administrador.js",
+		"/C/xampp/htdocs/siegnuevo/public/js/egresado.js",
+		"/C/xampp/htdocs/siegnuevo/app/Http/Controllers/AdminController.php",
+		"/C/xampp/htdocs/siegnuevo/app/Http/Controllers/HomeController.php",
+		"/C/xampp/htdocs/siegnuevo/resources/views/administrador/index.blade.php",
+		"/C/xampp/htdocs/sil-copia/app/Http/Requests/LoginRequest.php",
+		"/C/xampp/htdocs/sil-copia/resources/views/auth/login.blade.php",
+		"/C/xampp/htdocs/sil-copia/app/Http/Controllers/AdminController.php",
+		"/C/xampp/htdocs/sil-copia/resources/views/graduado/index.blade.php",
+		"/C/xampp/htdocs/siegnuevo/resources/views/administrador/graduados_censo.blade.php",
+		"/C/xampp/htdocs/siegnuevo/app/Models/Persona.php",
+		"/C/xampp/htdocs/sil-copia/resources/views/admin/ofertas.blade.php",
+		"/C/xampp/htdocs/siegnuevo/resources/views/administrador/usuarios.blade.php",
+		"/C/xampp/htdocs/siegnuevo/resources/views/administrador/censo.blade.php",
+		"/C/xampp/htdocs/siegnuevo/app/Http/Requests/GuardarUsuarioRequest.php",
+		"/C/xampp/htdocs/siegnuevo/app/Models/User.php",
+		"/C/xampp/htdocs/siegnuevo/app/Models/UsuarioRol.php",
+		"/C/xampp/htdocs/siegnuevo/app/Models/DependenciaModalidad.php",
+		"/C/xampp/htdocs/siegnuevo/app/Http/Controllers/LoginController.php",
+		"/C/xampp/htdocs/siegnuevo/app/User.php",
+		"/C/xampp/htdocs/siegnuevo/public/js/defaults.js",
+		"/C/xampp/htdocs/siegnuevo/public/favicon.ico",
+		"/C/xampp/htdocs/siegnuevo/vendor/guzzlehttp/psr7/src/AppendStream.php",
+		"/C/xampp/htdocs/siegnuevo/public/js/angular-messages.min.js",
+		"/C/xampp/htdocs/siegnuevo/app/Models/CoordinadorPrograma.php",
+		"/C/xampp/htdocs/siegnuevo/app/Models/Roles.php",
+		"/C/xampp/htdocs/siegnuevo/app/Http/Middleware/Rol.php",
+		"/C/xampp/htdocs/siegnuevo/app/Http/Middleware/CORS.php",
+		"/C/xampp/htdocs/siegnuevo/app/Models/Pais.php",
+		"/C/xampp/htdocs/siegnuevo/app/Models/TipoEmpleador.php",
+		"/C/xampp/htdocs/siegnuevo/app/Models/TipoSede.php",
+		"/C/xampp/htdocs/siegnuevo/app/Models/Usuarios.php",
+		"/C/xampp/htdocs/siegnuevo/artisan",
+		"/C/xampp/htdocs/siegnuevo/phpunit.xml",
+		"/C/xampp/htdocs/sil-copia/resources/views/admin/cartas.blade.php",
+		"/C/xampp/htdocs/sil-copia/resources/views/admin/actas.blade.php",
+		"/C/xampp/htdocs/sil-copia/resources/views/admin/evaluaciones.blade.php",
+		"/C/xampp/htdocs/sil-copia/resources/views/admin/fsantamarta.blade.php",
+		"/C/xampp/htdocs/sil-copia/app/Http/Controllers/AdminSilController.php",
+		"/C/xampp/htdocs/sil-copia/public/ckeditor/ckeditor.js",
+		"/C/xampp/htdocs/sil-copia/app/Http/Controllers/CoordinadorController.php",
+		"/C/xampp/htdocs/sil-copia/app/Http/Controllers/EmpresaController.php",
+		"/C/xampp/htdocs/sil-copia/app/Http/Controllers/GraduadoController.php",
+		"/C/xampp/htdocs/sil-copia/app/Http/Controllers/EvaluacionController.php",
+		"/C/Users/Fguue/AppData/Roaming/Sublime Text 3/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+		"/C/xampp/htdocs/sil-copia/app/Http/Controllers/JefeController.php"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"if",
+			"id",
+			"tarea",
+			"postregis",
+			"var",
+			"paginator",
+			"per",
+			"value",
+			"id",
+			"render",
+			"pivot",
+			"nombres",
+			"getPersona",
+			"usuariosCtrl",
+			"usuariosCtrl}",
+			"->programa",
+			"user->getrol",
+			"id",
+			"ids",
+			"usuario->getrol",
+			"value",
+			"Session",
+			"session",
+			"getrol",
+			"postregistro",
+			"postregis"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3428,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2589,
+								2589
+							]
+						],
+						"settings":
+						{
+							"SL.18.region_keys":
+							[
+								"SL.pylint.Highlights.|fab5065664ba64230cb09a6cc9db41aa176145e03fd292e38cde893f3e5e2d58|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|5f93e1db4c76957684408dd551cc442a8d0aa5353edf77983c52d3c00fd4bdd8|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|c48bc0d4809892dd897af169d4a4ce7206246c73ef84bfc17e11fbff7740de00|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|6d6732813960d29b923b24065ba822bdb7da403cc8388881ffdd2294691de517|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|3e87f604d6d7fecfca8ef21ff4ae3e1e6fd8b46ceb4e264bee68b1b8dc9f7c48|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|5d23697e767de8d7671f31c73769e74211710fbf994392b7a7b9a91f9d6a3f58|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|e400d64535de5213711a0254796898eee3006deb109a8bc3ebe1bdf688b7c0fd|region.redish markup.error.sublime_linter|32",
+								"SL.pylint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.pylint.Highlights.|cdb4967446a9d3eaf2549e5ee0bd091be1749c64c4a916b821fb7b1230e142ed|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|8cfde178d8816eb1edfee9e20b7dbe7ac66f583fd8c08e6358ec06900b0de80e|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
+								"SL.pylint.Highlights.|990befbbf51ba852b0775dfb1bd908e52f7832099600c728b0687b6f0d255d92|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|146c8d598d20ffc535fe3d768e439404dfb655b851c28147b4e94c21fd9fc832|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|2e4246292b6af25d9ea7a9411a5f59fd316e381c5026ae62a0a54f44e92ae390|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|599a98a882c0567283895bce18347acc89ca84e695c9533afe43f1a799c18c58|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|c2a87b394f1beab3c034af553e054f410a1ae45f81379a894c31b69a9f7e1b8f|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|0701edc13abf3587ecf3bea0af90f1b1d254425146c0af5eab25bdefbbf6e593|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|01461d8121128e42275f49894674c758e4a669663e75b018f919aa8b6c31c34a|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|bf533e581e243a566fa2613f43c85707ff3ee241d85eba3c1b9f1921b7c87231|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|a21e81ffe65cd016ce222325af4df6b3ea3da22f5c4a992023cb13cda5c8e594|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|f72220a4f0ece5dedaac5dbbbec89cc7b4843ea24c6f2b848ba24b2f940d6f1b|region.yellowish markup.warning.sublime_linter|32",
+								"SL.pylint.Highlights.|dc731ec3c7c4ff627b54bec3b506c52f356a678c179a02eb5532e2c95d868ded|region.yellowish markup.warning.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.pylint.Highlights.|a962ca2566a38501e42fc8a6036cd4558ca5a562390783ef9e75b9ab5311a6c2|region.yellowish markup.warning.sublime_linter|32"
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1620.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 49.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.SublimeLinter":
+	{
+		"height": 140.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "a.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"controll",
+				"public\\js\\controller.js"
+			],
+			[
+				"admin",
+				"app\\Http\\Controllers\\AdminController.php"
+			],
+			[
+				"admi",
+				"public\\js\\administrador.js"
+			],
+			[
+				"login",
+				"app\\Http\\Controllers\\LoginController.php"
+			],
+			[
+				"homecon",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"adminc",
+				"app\\Http\\Controllers\\AdminController.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 306.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
