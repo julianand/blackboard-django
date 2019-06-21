@@ -1,7 +1,7 @@
 from django.urls import path, include
 
 from . import views
-from .views_folder import profesor_views, curso_views, tarea_views
+from .views_folder import profesor_views, curso_views, tarea_views, estudiante_views
 
 tarea_patterns = [
     path('', tarea_views.index),
@@ -28,6 +28,12 @@ profesor_patterns = [
     path('curso<int:num>/', include(curso_patterns))
 ]
 
+estudiante_patterns = [
+    path('', estudiante_views.index),
+    path('cursos/', estudiante_views.cursos),
+    path('matricular/', estudiante_views.matricular)
+]
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('datos-registro/', views.datosRegistro),
@@ -35,5 +41,6 @@ urlpatterns = [
     path('login/', views.login_view),
     path('logout/', views.logout_view),
 
-    path('profesor/', include(profesor_patterns))
+    path('profesor/', include(profesor_patterns)),
+    path('estudiante/', include(estudiante_patterns))
 ]

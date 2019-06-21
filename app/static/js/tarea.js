@@ -1,6 +1,6 @@
 axios.defaults.baseURL = window.location.href;
 
-var app = new Vue({
+new Vue({
 	el: '#app',
 	delimiters: [ '${', '}' ],
 	data: {

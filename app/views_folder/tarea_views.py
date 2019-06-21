@@ -55,7 +55,9 @@ def guardar (request, num, tarea_id):
 		tarea.descripcion = request.POST['descripcion']
 		tarea.fecha_final = request.POST['fecha_final']
 
-		if 'file' in request.FILES: tarea.file = request.FILES['file']
+		if 'file' in request.FILES:
+			tarea.file.delete()
+			tarea.file = request.FILES['file']
 
 		tarea.save()
 

@@ -1,0 +1,57 @@
+{% extends 'layouts/principalLayout.html' %}
+{% load static %}
+{% block titulo %}Tablero de estudiante{% endblock %}
+
+{% block content %}
+
+	<ul class="nav bg-primary">
+		<li class="nav-item py-2">
+			<a class="nav-link text-white" href="/profesor">Mis cursos</a>
+		</li>
+		<!-- --------------------------------------------------------------- -->
+		<li class="nav-item py-2 ml-auto bg-danger">
+			<a class="nav-link text-white" href="/logout" data-toggle="modal" data-target="#sesionModal">Cerrar sesion</a>
+		</li>
+	</ul>
+	<br>
+	<section class="container bg-white py-3 px-4 rounded">
+		<p class="font-italic"><span class="text-danger">*</span> Buscar cursos por nombre o profesor.</p>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Nombre del curso</label>
+					<input class="form-control" placeholder="Nombre del curso" v-model="filtro.nombre"></input>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Profesor</label>
+					<input class="form-control" placeholder="Profesor" v-model="filtro.profesor"></input>
+				</div>
+			</div>
+		</div>
+	</section>
+	<br>
+	<section class="container bg-white py-3 px-4 rounded">
+		<div class="row">
+			<div class="col-lg-4 col-md-6" v-for="curso in filtroCursos(filtro.nombre, filtro.profesor)">
+				<div class="card mb-3">
+					<div class="card-body">
+						<h4 class="card-title">${ curso.nombre }</h4>
+						<h6 class="card-subtitle mb-2 text-muted">Fecha final: ${ curso.fecha_final }</h6>
+						<h6 class="card-subtitle mb-2 text-muted">Profesor: ${ curso.profesor.toUpperCase() }</h6>
+						<p class="card-text">${ curso.descripcion }</p>
+						<a href="#" class="card-link" @click.prevent="matricular(curso)">Matricularse</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<script src="{% static 'js/estudiante/index.js' %}"></script>
+
+{% endblock %}
